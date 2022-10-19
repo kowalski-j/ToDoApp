@@ -1,0 +1,16 @@
+<div class="container-fluid">
+<div *ngIf="agenda">
+<h2>{{ agenda.name }}</h2>
+<div>
+    Name: 
+    <input class="form-control" [(ngModel)] = "agenda.name" placeholder="Name"/>
+</div>
+<div>
+    Description: 
+    <input class="form-control" [(ngModel)] = "agenda.description" placeholder="Description"/>
+</div>
+</div>
+<button class= "btn btn-primary" type="button" (click)="updateAgenda(agenda)" *ngIf="agenda?.id">Save</button>
+<button class ="btn btn-danger" type="button" (click)="deleteAgenda(agenda)" *ngIf="agenda?.id">Delete</button>
+<button class = "btn btn-success" type="button" (click)="createAgenda(agenda)" *ngIf="!agenda?.id">Create</button>
+</div>

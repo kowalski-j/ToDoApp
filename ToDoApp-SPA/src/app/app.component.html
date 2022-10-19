@@ -1,0 +1,33 @@
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><b>Personal Management Application</b></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+</div>
+<br>
+<br>
+<button class="btn btn-success" (click)="initNewAgenda()">Create New Item</button>
+<br>
+<br>
+
+
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <th scope="col">Date Created</th>
+    <th scope="col">Name of Agenda</th>
+    <th scope="col">Description of Agenda</th>
+    <th scope="col"></th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let agenda of agendas">
+      <td>{{agenda.createdOn}}</td>
+      <td>{{agenda.name}}</td>
+      <td>{{agenda.description}}</td>
+      <td><button class="btn btn-success" (click)="editAgenda(agenda)">Edit</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<app-edit-agenda [agenda]="agendaToEdit" (agendaUpdated)="updateAgendaList($event)"></app-edit-agenda>
